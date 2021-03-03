@@ -99,6 +99,5 @@ public class Lesson_3 {
             }
         }while (!userSt.equals(words[n]));
 
-
     }
 }
