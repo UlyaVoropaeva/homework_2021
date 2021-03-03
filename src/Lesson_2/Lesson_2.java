@@ -70,9 +70,13 @@ public class Lesson_2 {
 
         for (int i=0; i < mas.length; i++){
             for(int j=0; j<mas[i].length; j++) {
-                if (i == j) {
+               if (i == j) {
                     mas[i][j] = 1;
-                } else mas[i][j] = 0;
+                } else if ((mas.length-1-i)==(j)){
+                    mas[(i)][j] = 1;
+                }  else {
+                    mas[i][j] = 0;
+                }
                 System.out.println(mas[i][j]);
             }
         }
