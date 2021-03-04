@@ -60,7 +60,6 @@ public class Lesson_3 {
         }
     }
 
-
     //2	* Создать массив из слов
     //String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli",
     // "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom",
