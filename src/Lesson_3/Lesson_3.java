@@ -1,54 +1,61 @@
 package Lesson_3;
-import java.util.Arrays;
+
+
 import java.util.Scanner;
 import java.util.Random;
 
 public class Lesson_3 {
-    public static void main( String [] args) {
+    public static void main(String[] args) {
 
-        lesson3HomeWork1( );
-        lesson3HomeWork2( );
-        sc.close();
+        lesson3HomeWork1();
+        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot",
+                "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive",
+                "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        lesson3HomeWork2(words);
+
     }
+
     public static Scanner sc = new Scanner(System.in);
-    public static Random rand = new Random( );
+    public static Random rand = new Random();
 
     /// 1	Написать программу, которая загадывает случайное число от 0 до 9
     // и пользователю дается 3 попытки угадать это число. При каждой попытке компьютер должен сообщить,
     // больше ли указанное пользователем число, чем загаданное, или меньше.
     // После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет» (1 – повторить, 0 – нет).
 
-    private static void  lesson3HomeWork1( ) {
+    private static void lesson3HomeWork1() {
         int userInt;
         int n = 3;
-        System.out.println("Программа загадывает случайное число от 0 до 9. Угадайте это число. У Вас" + n +" попытки");
+        System.out.printf("Программа загадывает случайное число от 0 до 9. Угадайте это число. У вас %d попытки %n", n);
         int randX = rand.nextInt(10);
-        for (int i=0; i < n; i ++){
-            System.out.println("Попытка № " + (1+i) + "\n Введите число :");
+        for (int i = 0; i < n; i++) {
+            System.out.printf("Попытка № %d Введите число: %n", (1 + i));
             userInt = sc.nextInt();
-            if (userInt>=10 || userInt<0 ){
+            if (userInt >= 10 || userInt < 0) {
                 System.out.println("Вы ввели значение которое не входит в диопазон от 0 до 9!");
-                lesson3HomeWork1Return( );
+                lesson3HomeWork1Return();
                 return;
-            }else if(userInt > randX && i < 2){
-                    System.out.println("Вы ввели значений больше загаданного");
-            } else if (userInt < randX && i < 2){
-                    System.out.println("Вы ввели значений меньше загаданного");
-            } else if (userInt == randX){
-                    System.out.println("Поздравляем Вы угадали!");
-                    lesson3HomeWork1Return( );
-                    return;
-            } else  {
-                    System.out.println("Вы проиграли. Загаданое число  = " + randX );
-                    lesson3HomeWork1Return( );
-                    return;
-                }
+            } else if (userInt > randX && i < 2) {
+                System.out.println("Ваше значение больше");
+            } else if (userInt < randX && i < 2) {
+                System.out.println("Ваше значение меньше");
+            } else if (userInt == randX) {
+                System.out.println("Поздравляем, Вы угадали!");
+                lesson3HomeWork1Return();
+                return;
+            } else {
+                System.out.printf("Вы проиграли. Загаданое число = %d %n", randX);
+                lesson3HomeWork1Return();
+                return;
+            }
         }
+        sc.close();
     }
-    private static void  lesson3HomeWork1Return( ) {
+
+    private static void lesson3HomeWork1Return() {
         System.out.println("«Повторить игру еще раз? 1 – да / 0 – нет»");
-        int n= sc.nextInt();
-        if (n == 1)  {
+        int n = sc.nextInt();
+        if (n == 1) {
             lesson3HomeWork1();
         }
     }
@@ -72,33 +79,41 @@ public class Lesson_3 {
     //Играем до тех пор, пока игрок не отгадает слово.
     //Используем только буквы в нижнем регистре.
 
-    private static void  lesson3HomeWork2( ) {
-        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+    private static void lesson3HomeWork2(String[] words) {
+
         int n = rand.nextInt(words.length);
         String userSt;
         String str = "###############";
-        char a;
-        System.out.println("Программа загадывает случайное слово  из \n" );
-        System.out.print (Arrays.toString (words));
+        char index;
+        System.out.printf("Программа загадывает случайное слово из набора слов: %n");
+        printArraysString(words);
 
         do {
-            System.out.println("\n Угадайте это слово");
-            userSt = sc.nextLine();
+            System.out.printf("%n Угадайте это слово %n ");
+            userSt = sc.next();
             if (words[n].equals(userSt)) {
-                System.out.println("\n Вы выйграли!");
+                System.out.println(" Вы выйграли!");
                 return;
             } else {
                 for (int i = 0; i < 15; i++) {
                     if (i < words[n].length() && i < userSt.length() && words[n].charAt(i) == userSt.charAt(i)) {
                         System.out.print(words[n].charAt(i));
                     } else {
-                        a = str.charAt(i);
-                        System.out.print(a);
+                        index = str.charAt(i);
+                        System.out.print(index);
                     }
                 }
             }
-        }while (!userSt.equals(words[n]));
+        } while (!userSt.equals(words[n]));
+    }
 
-
+    private static void printArraysString(String[] words) {
+        for (int i = 0; i < words.length; i = i + 5) {
+            for (int j = i; j < 5 + i; j++) {
+                System.out.print(words[j]);
+                System.out.print(", ");
+            }
+            System.out.printf("%n");
+        }
     }
 }
