@@ -26,28 +26,48 @@ public class Main {
                 new Cat("Cat Murzik"),
                 new Cat("Cat Iris"),
         };
-        //Animal animals =new Cat("Cat Simon");
+        Plate plate = new Plate(0);
+
         System.out.println("Пожалуйста, покормите домашних питомцев:");
-        int us = scanner.nextInt();
-        Plate plate = new Plate(us);
+         int us = scanner.nextInt();
+        plate.addFood(us);
+        while (plate.getFood()==0){
+            System.out.println("Тарелка не в мешает введенное количество еды. Наполните снова:");
+            us = scanner.nextInt();
+            plate.addFood(us);
+        }
+
         plate.info();
 
         for (int i = 0; i < animals.length; i++) {
-            //animals[i].run(500);
-            //animals[i].swim(150);
+
             while (true) {
                 if (animals[i].isSatiety(plate)) {
                     animals[i].eat(plate);
                     plate.info();
                     break;
                 } else {
-                    System.out.printf("%s до полной сытоти не хватает %s еды %n Добавьте еды в тарелку %n", animals[i].getName(), (animals[i].getFull() - plate.getFood()));
+                    System.out.printf("%s до полной сытоти не хватает %s еды %n Добавьте еды в тарелку %n", animals[i].getName(), (animals[i].getAppetite() - plate.getFood()));
                     us = scanner.nextInt();
-                    plate.setFood(us);
+                    plate.addFood(us);
+                }
+            }
+        }
+            for (int i = 0; i < animals.length; i++) {
+
+                while (true) {
+                    if (animals[i].isSatiety(plate)) {
+                        animals[i].eat(plate);
+                        plate.info();
+                        break;
+                    } else {
+                        System.out.printf("%s до полной сытоти не хватает %s еды %n Добавьте еды в тарелку %n", animals[i].getName(), (animals[i].getAppetite() - plate.getFood()));
+                        us = scanner.nextInt();
+                        plate.addFood(us);
+                    }
                 }
             }
 
         }
-    }
 
 }

@@ -2,6 +2,7 @@ package lesson_7;
 
 public class Plate {
     private int food;
+    private  int maxFood = 100;
 
     public Plate(int food) {
         this.food = food;
@@ -11,9 +12,14 @@ public class Plate {
         return food;
     }
 
-    public int setFood(int pul) {
-        food += pul;
-        return food;
+    public int addFood(int pul) {
+        if(maxFoodPlate(pul)){
+            food += pul;
+        }
+            return food;
+    }
+    public  boolean maxFoodPlate(int pul){
+        return pul <= maxFood;
     }
 
     public void decreaseFood(int n) {

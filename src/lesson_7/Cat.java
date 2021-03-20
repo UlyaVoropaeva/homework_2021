@@ -2,7 +2,7 @@ package lesson_7;
 
 public class Cat extends Animal {
     public Cat(String name) {
-        super(name, 200, 0, 20, 60);
+        super(name, 200, 0, 20);
     }
 
     @Override
