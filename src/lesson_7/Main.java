@@ -26,6 +26,7 @@ public class Main {
                 new Cat("Cat Murzik"),
                 new Cat("Cat Iris"),
         };
+
         Plate plate = new Plate(0);
 
         System.out.println("Пожалуйста, покормите домашних питомцев:");

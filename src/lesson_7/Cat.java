@@ -10,5 +10,4 @@ public class Cat extends Animal {
         System.out.printf("%s боится воды и купаться он точно не пойдет.%n", getName());
     }
 
-
 }

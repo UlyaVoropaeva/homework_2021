@@ -56,7 +56,6 @@ public abstract class Animal {
         String message = isFeasible == true ? "%s проплыла  %s метров %n" : "%s отказалась плыть дистанцию в %s метров %n";
         System.out.printf(message, name, distance);
     }
-
     @Override
     public String toString() {
         return "Animal{" +

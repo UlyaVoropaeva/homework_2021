@@ -5,10 +5,12 @@ public class Plate {
     private  int maxFood = 100;
 
     public Plate(int food) {
+
         this.food = food;
     }
 
     public int getFood() {
+
         return food;
     }
 
