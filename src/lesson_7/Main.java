@@ -32,7 +32,7 @@ public class Main {
          int us = scanner.nextInt();
         plate.addFood(us);
         while (plate.getFood()==0){
-            System.out.println("Тарелка не в мешает введенное количество еды. Наполните снова:");
+            System.out.println("Тарелка не вмещает введенное количество еды. Наполните снова:");
             us = scanner.nextInt();
             plate.addFood(us);
         }
