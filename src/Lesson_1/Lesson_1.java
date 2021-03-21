@@ -56,7 +56,7 @@ public class Lesson_1 {
         boolean bool = (X + Y) >= 10 && (X + Y) <= 20;
         if (bool) {
             return bool;
-        } else  return bool;
+       } else  return bool;
 
     }
 
@@ -105,4 +105,3 @@ public class Lesson_1 {
     }
 
     }
-
